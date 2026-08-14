@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asim Sinha | Senior Infrastructure Engineer</title>
+    <!-- Google Fonts & FontAwesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-blue: #38bdf8;
+            --accent-indigo: #818cf8;
+            --border-color: #334155;
+            --tag-bg: #0f172a;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 1050px;
+            margin: 0 auto;
+        }
+
+        /* Header / Hero Section */
+        header {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-content h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        .header-content .subtitle {
+            font-size: 1.2rem;
+            color: var(--accent-blue);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-item i {
+            color: var(--accent-blue);
+        }
+
+        .contact-item a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .contact-item a:hover {
+            color: var(--accent-blue);
+        }
+
+        /* Section Layout */
+        section {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        h2.section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 0.75rem;
+        }
+
+        h2.section-title i {
+            color: var(--accent-blue);
+        }
+
+        /* Technical Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-card {
+            background: var(--tag-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.25rem;
+        }
+
+        .skill-card h3 {
+            font-size: 1rem;
+            color: var(--accent-indigo);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background-color: rgba(56, 189, 248, 0.1);
+            color: var(--accent-blue);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            font-size: 0.85rem;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+        }
+
+        /* Work History Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 1.5rem;
+            border-left: 2px solid var(--border-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -1.95rem;
+            top: 0.35rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--accent-blue);
+            border: 3px solid var(--card-bg);
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            margin-bottom: 0.5rem;
+        }
+
+        .job-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .company-name {
+            color: var(--accent-indigo);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .job-date {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            background: var(--tag-bg);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+        }
+
+        .job-details {
+            list-style-type: none;
+            margin-top: 0.75rem;
+        }
+
+        .job-details li {
+            position: relative;
+            padding-left: 1.25rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .job-details li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent-blue);
+        }
+
+        /* Education & Certifications Dual Grid */
+        .dual-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .edu-item {
+            margin-bottom: 1.25rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .edu-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .edu-degree {
+            font-weight: 600;
+            color: #ffffff;
+        }
+
+        .edu-school {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .edu-gpa {
+            color: var(--accent-blue);
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .cert-list {
+            list-style: none;
+        }
+
+        .cert-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .cert-list li i {
+            color: var(--accent-blue);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem 0.5rem;
+            }
+            header, section {
+                padding: 1.5rem;
+            }
+            .job-header {
+                flex-direction: column;
+                gap: 0.25rem;
+            }
+            .job-date {
+                margin-top: 0.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header / Contact Info -->
+        <header>
+            <div class="header-content">
+                <h1>Asim Sinha</h1>
+                <div class="subtitle">Results-Driven Infrastructure Engineer (14+ Years Experience)</div>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>Singapore 760455</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>+65 8657 9525</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <a href="mailto:asim.kumar10@outlook.com">asim.kumar10@outlook.com</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Professional Summary -->
+        <section>
+            <h2 class="section-title"><i class="fa-solid fa-user"></i> Professional Summary</h2>
+            <p style="color: var(--text-muted); font-size: 1rem; leading: 1.7;">
+                Results-driven Infrastructure Engineer with 14+ years of experience delivering enterprise IT solutions and leading cross-functional teams. Expertise in servers, virtualization, enterprise storage, data protection, and Microsoft Azure, with a proven track record of driving operational excellence and building scalable, secure, and resilient IT environments.
+            </p>
+        </section>
+
+        <!-- Technical Skills -->
+        <section>
+            <h2 class="section-title"><i class="fa-solid fa-microchip"></i> Technical Skills</h2>
+            <div class="skills-grid">
+                
+                <div class="skill-card">
+                    <h3><i class="fa-solid fa-cloud"></i> Cloud & Azure</h3>
+                    <div class="skill-tags">
+                        <span class="tag">Azure Virtual Machines</span>
+                        <span class="tag">Azure Files</span>
+                        <span class="tag">Azure Blob Storage</span>
+                        <span class="tag">Azure Backup & Recovery</span>
+                        <span class="tag">Azure Networking</span>
+                        <span class="tag">Cloud Migration</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h3><i class="fa-solid fa-server"></i> Virtualization & HCI</h3>
+                    <div class="skill-tags">
+                        <span class="tag">VMware vSphere</span>
+                        <span class="tag">ESXi</span>
+                        <span class="tag">vCenter</span>
+                        <span class="tag">vSAN</span>
+                        <span class="tag">VCF & Operations</span>
+                        <span class="tag">Dell VxRail</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h3><i class="fa-solid fa-hard-drive"></i> Enterprise Storage</h3>
+                    <div class="skill-tags">
+                        <span class="tag">Dell PowerMax</span>
+                        <span class="tag">PowerStore</span>
+                        <span class="tag">PowerScale / Isilon</span>
+                        <span class="tag">ECS / Unity</span>
+                        <span class="tag">NetApp ONTAP</span>
+                        <span class="tag">HPE 3PAR / EVA</span>
+                        <span class="tag">IBM FlashSystem</span>
+                        <span class="tag">SAN/NAS</span>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h3><i class="fa-solid fa-shield-halved"></i> Backup & Data Protection</h3>
+                    <div class="skill-tags">
+                        <span class="tag">Dell Data Domain</span>
+                        <span class="tag">Dell Avamar</span>
+                        <span class="tag">Dell NetWorker</span>
+                        <span class="tag">Veeam</span>
+                        <span class="tag">Veritas NetBackup</span>
+                        <span class="tag">Disaster Recovery</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Work History -->
+        <section>
+            <h2 class="section-title"><i class="fa-solid fa-briefcase"></i> Work History</h2>
+            <div class="timeline">
+
+                <!-- Job 1 -->
+                <div class="timeline-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Resident Engineer - Storage, Backup, Virtualization</div>
+                            <div class="company-name">DELL TECHNOLOGIES (on HMI Tech Payroll) – Singapore</div>
+                        </div>
+                        <span class="job-date">09/2022 – Present</span>
+                    </div>
+                    <ul class="job-details">
+                        <li>Solution design and deployment of SAN and NAS storage solutions, including storage provisioning, zoning, LUN masking, capacity planning, and lifecycle management.</li>
+                        <li>Managed Azure virtual machine environments, including provisioning, administration, monitoring, backup, recovery, and operational troubleshooting for enterprise workloads.</li>
+                        <li>Supported on-premises to Azure migrations, including workload assessment, migration planning, execution, and post-migration validation.</li>
+                        <li>Deployment of Dell PowerEdge XE servers tailored for AI workloads.</li>
+                        <li>Designed enterprise backup and recovery operations using Dell EMC NetWorker, Avamar, and Veeam Backup & Replication.</li>
+                        <li>Collaborated with Data Center teams on Day-1 infrastructure deployments (rack allocation, hardware staging, power validation, storage connectivity).</li>
+                        <li>Executed system upgrades, firmware updates, OS hardening aligned with CIS Benchmarks and enterprise security standards.</li>
+                        <li>Delivered Day-2 operational support for virtualization, storage, and backup platforms (incident resolution, RCA, capacity planning, performance optimization).</li>
+                    </ul>
+                </div>
+
+                <!-- Job 2 -->
+                <div class="timeline-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Senior Information Technology System Engineer</div>
+                            <div class="company-name">AMERICAN AXLE – Pune, India</div>
+                        </div>
+                        <span class="job-date">07/2017 – 08/2022</span>
+                    </div>
+                    <ul class="job-details">
+                        <li>Led storage and data-protection architecture across VMware-based environments, driving SAN/NAS design supporting ESXi, vSAN, and VxRail workloads.</li>
+                        <li>Defined enterprise architecture standards, roadmaps, and governance across infrastructure teams.</li>
+                        <li>Architected cloud-aligned backup and recovery workflows, including migration of on-prem workloads to AWS and Azure.</li>
+                        <li>Troubleshot complex storage/backup issues, performed Root Cause Analysis (RCA), and implemented long-term stability fixes.</li>
+                        <li>Performed VxRail/vSAN administration, version upgrades, patching, and firmware upgrades within ITIL frameworks.</li>
+                    </ul>
+                </div>
+
+                <!-- Job 3 -->
+                <div class="timeline-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Technology Lead</div>
+                            <div class="company-name">INFOSYS LTD – Pune, India</div>
+                        </div>
+                        <span class="job-date">12/2014 – 07/2017</span>
+                    </div>
+                    <ul class="job-details">
+                        <li>Managed provisioning, operations, and maintenance of large-scale datacenter infrastructure, including VMware vSphere clusters and SAN-attached storage.</li>
+                        <li>Administered multi-switch SAN fabrics (zoning, re-zoning, port configuration, and routine health checks).</li>
+                        <li>Optimized enterprise backup operations by tuning policies and ensuring successful daily backup cycles.</li>
+                        <li>Collaborated with cross-functional teams (DBA, Wintel, App teams) to troubleshoot production issues and deliver infrastructure projects.</li>
+                    </ul>
+                </div>
+
+                <!-- Job 4 -->
+                <div class="timeline-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Senior Analyst</div>
+                            <div class="company-name">ACCENTURE – Bangalore, India</div>
+                        </div>
+                        <span class="job-date">10/2012 – 12/2014</span>
+                    </div>
+                    <ul class="job-details">
+                        <li>Configured and documented EMC software, hardware, and storage service solutions to meet business and client objectives.</li>
+                        <li>Served as a technical expert and consultant alongside presales/sales teams to design integrated enterprise infrastructure proposals.</li>
+                    </ul>
+                </div>
+
+                <!-- Job 5 -->
+                <div class="timeline-item">
+                    <div class="job-header">
+                        <div>
+                            <div class="job-title">Network Support Specialist</div>
+                            <div class="company-name">SELTEC PTY LTD – Melbourne, Australia</div>
+                        </div>
+                        <span class="job-date">08/2010 – 09/2012</span>
+                    </div>
+                    <ul class="job-details">
+                        <li>Maintained continuous network infrastructure monitoring, alert configuration, and device provisioning.</li>
+                        <li>Managed disaster recovery tasks including user data backup via SAN/tape devices and asset configuration planning.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Dual Grid: Education & Certifications -->
+        <div class="dual-grid">
+            
+            <!-- Education -->
+            <section>
+                <h2 class="section-title"><i class="fa-solid fa-graduation-cap"></i> Education</h2>
+                
+                <div class="edu-item">
+                    <div class="edu-degree">MBA: Business Administration</div>
+                    <div class="edu-school">University of Illinois Urbana-Champaign (UIUC) - USA</div>
+                    <div class="edu-gpa">GPA: 4.0 / 4.0</div>
+                </div>
+
+                <div class="edu-item">
+                    <div class="edu-degree">Graduate Certificate: Business Analytics</div>
+                    <div class="edu-school">University of Illinois Urbana-Champaign (UIUC) - USA</div>
+                </div>
+
+                <div class="edu-item">
+                    <div class="edu-degree">Master of Science: Network Systems</div>
+                    <div class="edu-school">Swinburne University of Technology - Australia</div>
+                </div>
+
+                <div class="edu-item">
+                    <div class="edu-degree">Bachelor's Degree: Electronics Engineering</div>
+                    <div class="edu-school">North Maharashtra University - India</div>
+                </div>
+            </section>
+
+            <!-- Certifications -->
+            <section>
+                <h2 class="section-title"><i class="fa-solid fa-certificate"></i> Certifications</h2>
+                <ul class="cert-list">
+                    <li><i class="fa-solid fa-check-circle"></i> Microsoft Certified: Azure Administrator Associate (AZ-104)</li>
+                    <li><i class="fa-solid fa-check-circle"></i> VMware Certified Professional Data Center Virtualization</li>
+                    <li><i class="fa-solid fa-check-circle"></i> AWS Certified Solutions Architect - Associate</li>
+                    <li><i class="fa-solid fa-check-circle"></i> HashiCorp Certified: Terraform Associate</li>
+                    <li><i class="fa-solid fa-check-circle"></i> EMC Technology Architect (EMCTA)</li>
+                    <li><i class="fa-solid fa-check-circle"></i> NetApp Certified Data Administrator</li>
+                    <li><i class="fa-solid fa-check-circle"></i> Cisco Certified Network Associate (CCNA)</li>
+                    <li><i class="fa-solid fa-check-circle"></i> ITIL Foundation V3</li>
+                </ul>
+            </section>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
